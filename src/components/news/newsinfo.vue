@@ -10,6 +10,7 @@
 
 <script>
 import {Toast} from 'mint-ui';
+import common from '../../kits/common.js';
  export default{
     data(){
         return {
@@ -22,7 +23,7 @@ import {Toast} from 'mint-ui';
     },methods:{
         getnewsinfo(){
             var that = this;
-            var url = 'http://webhm.top:8899/api/getnew/'+this.id;
+            var url = common.apidomain+'/api/getnew/'+this.id;
             this.$http.get(url)
             .then(function(res){
                 // console.log(res.bodyText);

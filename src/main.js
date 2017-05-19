@@ -39,6 +39,8 @@ import photolist from './components/photo/photolist.vue';
 import {Toast} from 'mint-ui';
 
 import moment from 'moment';
+
+
 // ajax请求组件
 // import Axios from 'axios';
 // import axios from 'axios';

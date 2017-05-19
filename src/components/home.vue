@@ -33,8 +33,9 @@
 </template>
 
 <script>
+  import common from '../kits/common.js';
 import {Toast} from 'mint-ui';
-    export default{
+export default{
         data(){
             return{
             list:[]
@@ -45,7 +46,8 @@ import {Toast} from 'mint-ui';
  },
  methods:{
      getimgs(){
-         var url ='http://webhm.top:8899/api/getlunbo';
+         var that = this;
+         var url = common.apidomain+'/api/getlunbo';
          this.$http.get(url)
          .then(function(response){
             //  console.log(response.body);
@@ -55,7 +57,7 @@ import {Toast} from 'mint-ui';
                 Toast(data.message);
                 return;
              }else{
-                 this.list = data.message;
+                 that.list = data.message;
              }
          })
      }
