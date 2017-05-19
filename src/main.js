@@ -29,10 +29,15 @@ import home from './components/home.vue';
 import shopcar from './components/shopcar/car.vue';
 
 import newslist from './components/news/newslist.vue';
+import newsinfo from './components/news/newsinfo.vue';
+
 import goodslist from './components/goods/goodslist.vue';
 import photolist from './components/photo/photolist.vue';
 
+
 // 导入时间对象
+import {Toast} from 'mint-ui';
+
 import moment from 'moment';
 // ajax请求组件
 // import Axios from 'axios';
@@ -46,9 +51,17 @@ var router = new vueRouter({
 		{path:'/home',component:home},
 		{path:'/shopcar',component:shopcar},
 		{path:'/news/newslist',component:newslist},
+		{path:'/news/newsinfo/:id',component:newsinfo},
+		
 		{path:'/goods/goodslist',component:goodslist},
 		{path:'/photo/photolist',component:photolist},
 	],
+});
+
+// 定义一个全局的时间过滤器
+Vue.filter('datefmt',function(input,fmtstring){
+	// fmtstring = fmtstring?fmtstring:'YYY-MM-DD';
+	return moment(input).format(fmtstring);
 });
 
 // 4.0 利用Vue对象进行解析渲染
@@ -61,8 +74,3 @@ new Vue({
 	}   
 });
 
-// 定义一个全局的时间过滤器
-Vue.filter('datefmt',function(input,fmtstring){
-	fmtstring = fmtstring?fmtstring:'YYY-MM-DD';
-	return moment(input).format(fmtstring);
-});
