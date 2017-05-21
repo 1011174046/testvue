@@ -49,7 +49,7 @@ import moment from 'moment';
 var router = new vueRouter({
 	linkActiveClass:'mui-active', //改变激活路由的class名称
 	routes:[
-		{path:'/',component:home},
+		{path:'/',redirect:'/home'},
 		{path:'/home',component:home},
 		{path:'/shopcar',component:shopcar},
 		{path:'/news/newslist',component:newslist},

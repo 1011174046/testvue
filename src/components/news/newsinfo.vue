@@ -5,19 +5,29 @@
            <hr>
            <div v-html="list.content">
            </div>
+
+             <!--使用评论组件的集成-->
+            <comment v-bind:id="id"></comment>
      </div>
+  
+    
 </template>
 
 <script>
 import {Toast} from 'mint-ui';
 import common from '../../kits/common.js';
+import comment from '../subcom/comment.vue';
  export default{
+     components:{
+         comment   //  注册评论主件
+    },
     data(){
         return {
             id:0,
             list: {},
         }
-    },created(){
+    },
+    created(){
         this.id = this.$route.params.id;
         this.getnewsinfo();
     },methods:{
